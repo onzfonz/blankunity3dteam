@@ -47,7 +47,8 @@ WHATSNEW*          text
 
 # Previous "binary"
 *.unity            text eol=lf
-*.asset            binary #having this as text eol=lf caused terrain data not to be saved correctly
+# having asset as text eol=lf caused terrain data not to be saved correctly
+*.asset            binary 
 *.prefab           text eol=lf
 
 # Apply Windows/DOS-style CR-LF line-endings on checkout of these files...
