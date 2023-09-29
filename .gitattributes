@@ -1,127 +1,129 @@
-# Apply native OS line-endings on checkout of these files...
-*.boo              text
-*.c                text
-*.cginc            text
-*.config           text
-*.contentproj      text
-*.cpp              text
-*.dae              text
-*.DAE              text
-*.dtd              text
-*.fx               text
-*.glsl             text
-*.h                text
-*.inc              text
-*.ini              text
-*.js               text
-*.JSFL             text
-*.jsfl             text
-*.json             text
-*.log              text
-*.md               text
-*.mel              text
-*.php              text
-*.shader           text
-*.txt              text
-*.TXT              text
-*.xaml             text
-*.xml              text
-*.xsd              text
-.gitattributes     text
-.gitignore         text
-COPYING            text
-INSTALL*           text
-KEYS*              text
-LICENSE*           text
-NEWS*              text
-NOTICE*            text
-README*            text
-TODO*              text
-WHATSNEW*          text
+# Taken from hextant studios
+# Macro for Unity YAML-based asset files.
+[attr]unityyaml -text merge=unityyamlmerge diff
 
-# Apply Unix-style LF line-endings on checkout of these files...
-*.meta             text eol=lf
-*.sh               text eol=lf
-*.vspscc           text eol=lf
-.htaccess          text eol=lf
+# Macro for all binary files that should use Git LFS.
+[attr]lfs -text filter=lfs diff=lfs merge=lfs
 
-# Previous "binary"
-*.unity            text eol=lf
-*.asset            text eol=lf
-*.prefab           text eol=lf
+# Default to auto-normalized line endings.
+* text=auto
 
-# Apply Windows/DOS-style CR-LF line-endings on checkout of these files...
-*.bat              text eol=crlf
-*.cmd              text eol=crlf
-*.csproj           text eol=crlf
-*.sln              text eol=crlf
-*.user             text eol=crlf
-*.vcproj           text eol=crlf
-*.cs               text eol=crlf
-*.css              text eol=crlf
-*.htm              text eol=crlf
-*.html             text eol=crlf
+# Code
+*.cs text diff=csharp
 
-# No end-of-line conversions are applied (i.e., "-text -diff") to these files...
-*.7z               binary
-*.ai               binary
-*.anim             binary
-*.apk              binary
-*.bin              binary
-*.bmp              binary
-*.BMP              binary
-*.com              binary
-*.COM              binary
-*.controller       binary
-*.cubemap          binary
-*.dex              binary
-*.dll              binary
-*.DLL              binary
-*.dylib            binary
-*.eps              binary
-*.exe              binary
-*.EXE              binary
-*.exr              binary
-*.fbx              binary
-*.FBX              binary
-*.fla              binary
-*.flare            binary
-*.flv              binary
-*.gif              binary
-*.guiskin          binary
-*.gz               binary
-*.ht               binary
-*.ico              binary
-*.jpeg             binary
-*.jpg              binary
-*.keystore         binary
-*.mask             binary
-*.mat              binary
-*.mb               binary
-*.mp3              binary
-*.mp4              binary
-*.mpg              binary
-*.ogg              binary
-*.PCX              binary
-*.pcx              binary
-*.pdb              binary
-*.pdf              binary
-*.physicMaterial   binary
-*.physicmaterial   binary
-*.png              binary
-*.ps               binary
-*.psd              binary
-*.qt               binary
-*.so               binary
-*.swf              binary
-*.tga              binary
-*.tif              binary
-*.tiff             binary
-*.ttf              binary
-*.TTF              binary
-*.unitypackage     binary
-*.unityPackage     binary
-*.wav              binary
-*.wmv              binary
-*.zip              binary
-*.ZIP              binary
+# Unity Text Assets
+*.meta unityyaml
+*.unity unityyaml
+*.asset unityyaml
+*.prefab unityyaml
+*.mat unityyaml
+*.anim unityyaml
+*.controller unityyaml
+*.overrideController unityyaml
+*.physicMaterial unityyaml
+*.physicsMaterial2D unityyaml
+*.playable unityyaml
+*.mask unityyaml
+*.brush unityyaml
+*.flare unityyaml
+*.fontsettings unityyaml
+*.guiskin unityyaml
+*.giparams unityyaml
+*.renderTexture unityyaml
+*.spriteatlas unityyaml
+*.terrainlayer unityyaml
+*.mixer unityyaml
+*.shadervariants unityyaml
+*.preset unityyaml
+*.asmdef -text diff
+
+# Unity Binary Assets
+*.cubemap lfs
+*.unitypackage lfs
+# Note: Unity terrain assets must have "-Terrain" suffix.
+*-[Tt]errain.asset -unityyaml lfs
+# Note: Unity navmesh assets must have "-NavMesh" suffix.
+*-[Nn]av[Mm]esh.asset -unityyaml lfs
+
+# Image
+*.jpg lfs
+*.jpeg lfs
+*.png lfs
+*.apng lfs
+*.atsc lfs
+*.gif lfs
+*.bmp lfs
+*.exr lfs
+*.tga lfs
+*.tiff lfs
+*.tif lfs
+*.iff lfs
+*.pict lfs
+*.dds lfs
+*.xcf lfs
+*.leo lfs
+*.kra lfs
+*.kpp lfs
+*.clip lfs
+*.webm lfs
+*.webp lfs
+*.svg lfs
+*.svgz lfs
+*.psd lfs
+*.afphoto lfs
+*.afdesign lfs
+
+# Audio
+*.mp3 lfs
+*.ogg lfs
+*.wav lfs
+*.aiff lfs
+*.aif lfs
+*.mod lfs
+*.it lfs
+*.s3m lfs
+*.xm lfs
+
+# Video
+*.mov lfs
+*.avi lfs
+*.asf lfs
+*.mpg lfs
+*.mpeg lfs
+*.mp4 lfs
+*.flv lfs
+*.ogv lfs
+*.wmv lfs
+
+# 3D
+*.fbx lfs
+*.obj lfs
+*.max lfs
+*.blend lfs
+*.blender lfs
+*.dae lfs
+*.mb lfs
+*.ma lfs
+*.3ds lfs
+*.dfx lfs
+*.c4d lfs
+*.lwo lfs
+*.lwo2 lfs
+*.abc lfs
+*.3dm lfs
+*.bin lfs
+*.glb lfs
+
+# Executables
+*.exe lfs
+*.dll lfs
+*.so lfs
+*.pdb lfs
+*.mdb lfs
+
+# Packaging
+*.zip lfs
+*.7z lfs
+*.gz lfs
+*.rar lfs
+*.tar lfs
